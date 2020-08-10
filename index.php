@@ -1,7 +1,10 @@
 <?php
 
     // if the form is submitted
-    if (isset( $_FILE['image']) && $_FILES['image']['error'] === 0 ) {
+    if (isset( $_FILES['image']) && $_FILES['image']['error'] === 0 ) {
+        
+        //initialize error
+        $error = 1; 
 
         //If img size is inferior to 5Mo
         if ($_FILES['image']['size'] <= 5000000 ) {
@@ -17,9 +20,15 @@
 
             // If extension is authorized
             if( in_array($extensionImage, $extensionAuthorized) ){
-                echo 'youpi';
-            }
+                
+                //Move image to uploads folder
+                $pathImage = 'uploads/'.time();
+                move_uploaded_file($_FILES['image']['tmp_name'], $pathImage);
+                
+                //no error
+                $error = 0;
 
+            } 
         }
     }
 
