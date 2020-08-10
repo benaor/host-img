@@ -21,6 +21,12 @@
         </div>
     </header>
 
+    <div class="container mx-auto my-5">
+        <form action="index.php" method="POST" class="m-auto d-flex flex-column justify-content-center">
+            <input type="file" name="image" class="m-auto text-center"> <br>
+            <button type="submit" class="text-center m-auto btn btn-lg btn-success ">Heberger l'image</button>
+        </form>
+    </div>
 </body>
 
 </html>
