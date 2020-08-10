@@ -3,6 +3,11 @@
     // if the form is submitted
     if (isset( $_FILE['image']) && $_FILES['image']['error'] === 0 ) {
 
+        //If img size is inferior to 5Mo
+        if ($_FILES['image']['size'] <= 5000000 ) {
+            
+
+        }
     }
 
 ?>
