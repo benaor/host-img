@@ -22,7 +22,7 @@
             if( in_array($extensionImage, $extensionAuthorized) ){
                 
                 //Move image to uploads folder
-                $pathImage = 'uploads/'.time();
+                $pathImage = 'uploads/'.time().'.'.$extensionImage;
                 move_uploaded_file($_FILES['image']['tmp_name'], $pathImage);
                 
                 //no error
@@ -57,10 +57,26 @@
 
     <!-- this is the form -->
     <div class="container mx-auto my-5">
-        <form action="index.php" method="POST" class="m-auto d-flex flex-column justify-content-center" enctype="multipart/form-data">
+        <form action="index.php" method="POST" class="mx-auto d-flex flex-column justify-content-center mb-5" enctype="multipart/form-data">
             <input type="file" name="image" class="m-auto text-center" required> <br>
-            <button type="submit" class="text-center m-auto btn btn-lg btn-success ">Heberger l'image</button>
+            <button type="submit" class="text-center m-auto btn btn-lg btn-success mb-5">Heberger l'image</button>
         </form>
+
+        <?php
+            if (isset($error) && $error == 0 ) {
+                
+                //the image link
+                echo '<div class="d-flex flex-column justify-content-center mt-5">
+                    <p class="text-center"> Ton lien vers ton image : </p> 
+                    <input type="text" value="http://localhost/php/host-pictures'.$pathImage.'" class="text-center col-6 m-auto">
+                </div>';
+            
+
+                //Display the image
+                echo '<p class="text-center mx-auto my-5"> <img src="'.$pathImage.'" alt="image telecharger" class="col-6"> </p>';
+            } 
+        ?>
+
     </div>
 </body>
 
