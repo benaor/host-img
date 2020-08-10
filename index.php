@@ -1,5 +1,10 @@
 <?php
-//  ICI LE CODE PHP 
+
+    // if the form is submitted
+    if (isset( $_FILE['image']) && $_FILES['image']['error'] === 0 ) {
+
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -15,15 +20,18 @@
 </head>
 
 <body>
+
+    <!-- this is the header -->
     <header class="container-fluid bg-primary">
         <div class="container p-5 m-auto">
             <h1 class="text-white text-center"> Hebergeur d'image </h1>
         </div>
     </header>
 
+    <!-- this is the form -->
     <div class="container mx-auto my-5">
-        <form action="index.php" method="POST" class="m-auto d-flex flex-column justify-content-center">
-            <input type="file" name="image" class="m-auto text-center"> <br>
+        <form action="index.php" method="POST" class="m-auto d-flex flex-column justify-content-center" enctype="multipart/form-data">
+            <input type="file" name="image" class="m-auto text-center" required> <br>
             <button type="submit" class="text-center m-auto btn btn-lg btn-success ">Heberger l'image</button>
         </form>
     </div>
