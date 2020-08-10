@@ -74,7 +74,13 @@
 
                 //Display the image
                 echo '<p class="text-center mx-auto my-5"> <img src="'.$pathImage.'" alt="image telecharger" class="col-6"> </p>';
-            } 
+            } elseif (isset($error) && $error == 1 ) {
+                
+                //extension no authorized
+                echo '<div class="d-flex flex-column text-danger justify-content-center mt-5">
+                    <p class="text-center"> ce type d\'extension n\'est pas autorisé ! </p> 
+                </div>';
+            }
         ?>
 
     </div>
