@@ -6,6 +6,19 @@
         //If img size is inferior to 5Mo
         if ($_FILES['image']['size'] <= 5000000 ) {
             
+            //stock info image in variable
+            $infoImage = pathinfo($_FILES['image']['name']);
+
+            //stock extension image in variable
+            $extensionImage = $infoImage['extension']; 
+
+            //Authorized Extension
+            $extensionAuthorized = array('png', 'jpg', 'jpeg', 'gif');
+
+            // If extension is authorized
+            if( in_array($extensionImage, $extensionAuthorized) ){
+                echo 'youpi';
+            }
 
         }
     }
